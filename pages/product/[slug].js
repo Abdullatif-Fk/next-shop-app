@@ -46,7 +46,6 @@ export default function ProductScreen() {
           <List>
             <ListItem>
               <Typography component="h1" variant="h1">
-                {' '}
                 {product.name}
               </Typography>
             </ListItem>
