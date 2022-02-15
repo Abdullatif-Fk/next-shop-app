@@ -45,7 +45,10 @@ export default function ProductScreen() {
         <Grid item md={3} xs={12}>
           <List>
             <ListItem>
-              <Typography component="h1"> {product.name}</Typography>
+              <Typography component="h1" variant="h1">
+                {' '}
+                {product.name}
+              </Typography>
             </ListItem>
             <ListItem>
               <Typography>Category: {product.category}</Typography>
@@ -72,7 +75,7 @@ export default function ProductScreen() {
                     <Typography>Price</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography>$ {product.price}</Typography>
+                    <Typography>${product.price}</Typography>
                   </Grid>
                 </Grid>
               </ListItem>
@@ -88,11 +91,11 @@ export default function ProductScreen() {
                   </Grid>
                 </Grid>
               </ListItem>
-              <List>
-                <Button fullWidth variant="containd" color="primary">
+              <ListItem>
+                <Button fullWidth variant="contained" color="primary">
                   Add to cart
                 </Button>
-              </List>
+              </ListItem>
             </List>
           </Card>
         </Grid>
