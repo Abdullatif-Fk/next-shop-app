@@ -60,3 +60,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 2. seed sample data
 3. create /api/products/index.js
 4. create product api
+
+# Fetch Products From API
+
+1. use getServerSideProps()
+2. get product from db
+3. return data as props
+4. use it in product screen too
