@@ -50,7 +50,6 @@ const data = {
     },
     {
       name: 'Fit Pants',
-
       slug: 'fit-pants',
       category: 'Pants',
       image: '/images/pants2.jpg',
