@@ -73,3 +73,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. define cart in context
 2. dispatch add to cart action
 3. set click event handler for button
+
+# Create Cart Screen
+
+1. create cart.js
+2. redirect to cart screen
+3. use dynamic from nextjs
+4. use context to get cart items
+5. list items in cart items
