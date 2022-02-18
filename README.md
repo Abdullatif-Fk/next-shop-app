@@ -122,3 +122,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. create form
 2. implement backend api
 3. redirect user to redirect page
+
+# Login and Register Form Validation
+
+1. install react-hook-form
+2. change input to controller
+3. use notistack to show errors
