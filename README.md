@@ -109,3 +109,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 3.  use jsonwebtoken to sign token
 4.  implement login api
+
+# Complete Login Page
+
+1. handle form submission
+2. add userInfo to context
+3. save userInfo in cookies
+4. show user name in nav bar using menu

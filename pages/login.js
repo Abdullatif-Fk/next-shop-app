@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Button,
   Link,
@@ -11,20 +11,35 @@ import Layout from '../components/Layout';
 import useStyles from '../utils/styles';
 import NextLink from 'next/link';
 import axios from 'axios';
+import { Store } from '../utils/Store';
+import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
 export default function Login() {
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state;
+  const router = useRouter();
+  const { redirect } = router.query; // login?redirect=/shipping
+  useEffect(() => {
+    if (userInfo) {
+      router.push('/');
+    }
+  }, []);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const classes = useStyles();
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     try {
-      const user = await axios.post('/api/users/login', {
+      const { data } = await axios.post('/api/users/login', {
         email,
         password,
       });
-      alert('success login');
-      console.log(user.data);
+      dispatch({ type: 'USER_LOGIN', payload: data });
+      Cookies.set('userInfo', data);
+      router.push(redirect || '/');
+      // alert('success login');
+      // console.log(data);
     } catch (err) {
       alert(err.response.data ? err.response.data.message : err.message);
     }
