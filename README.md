@@ -140,3 +140,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. create form
 2. add radio button
 3. save method in context
+
+# Create Place Order Page
+
+1. display order info
+2. show order summary
+3. add place order button
