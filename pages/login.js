@@ -42,10 +42,9 @@ export default function Login() {
         password,
       });
       dispatch({ type: 'USER_LOGIN', payload: data });
-      Cookies.set('userInfo', data);
+      Cookies.set('userInfo', JSON.stringify(data));
       router.push(redirect || '/');
       // alert('success login');
-      // console.log(data);
     } catch (err) {
       enqueueSnackbar(
         err.response.data ? err.response.data.message : err.message,

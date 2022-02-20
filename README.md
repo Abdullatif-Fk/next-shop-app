@@ -128,3 +128,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. install react-hook-form
 2. change input to controller
 3. use notistack to show errors
+
+# . Create Shipping Page
+
+1. create form
+2. add address fields
+3. save in Context and Cookies

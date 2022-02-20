@@ -68,6 +68,7 @@ export default function Layout({ title, description, children }) {
     dispatch({ type: 'USER_LOGOUT' });
     Cookies.remove('userInfo');
     Cookies.remove('cartItems');
+    Cookies.remove('shippingAddress');
     router.push('/');
   };
   return (
@@ -113,7 +114,7 @@ export default function Layout({ title, description, children }) {
                     onClick={loginClickHandler}
                     className={classes.navbarButton}
                   >
-                    {userInfo.name}{' '}
+                    {userInfo.name ? userInfo.name : 'login'}
                   </Button>
                   <Menu
                     id="simple-menu"

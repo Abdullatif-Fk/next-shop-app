@@ -79,12 +79,12 @@ export default function Register() {
                   fullWidth
                   id="name"
                   label="Name"
-                  inputProps={{ type: 'name' }}
+                  // inputProps={{ type: 'name' }}
                   error={Boolean(errors.name)}
                   helperText={
                     errors.name
                       ? errors.name.type === 'minLength'
-                        ? 'Name is not valid'
+                        ? 'Full Name length is more than 1'
                         : 'Name is required'
                       : ''
                   }
@@ -108,7 +108,7 @@ export default function Register() {
                   fullWidth
                   id="email"
                   label="Email"
-                  inputProps={{ type: 'email' }}
+                  // inputProps={{ type: 'email' }}
                   error={Boolean(errors.email)}
                   helperText={
                     errors.email
@@ -137,7 +137,7 @@ export default function Register() {
                   fullWidth
                   id="password"
                   label="Password"
-                  inputProps={{ type: 'password' }}
+                  // inputProps={{ type: 'password' }}
                   error={Boolean(errors.password)}
                   helperText={
                     errors.password
@@ -166,7 +166,7 @@ export default function Register() {
                   fullWidth
                   id="confirmpassword"
                   label="Confirmpassword"
-                  inputProps={{ type: 'password' }}
+                  // inputProps={{ type: 'password' }}
                   error={Boolean(errors.confirmpassword)}
                   helperText={
                     errors.confirmpassword
