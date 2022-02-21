@@ -154,3 +154,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 3. clear cart
 4. redirect to order screen
 5. create backend api
+
+# Create Order Details Page
+
+1. create api to order info
+2. create payment, shipping and items
+3. create order summary
