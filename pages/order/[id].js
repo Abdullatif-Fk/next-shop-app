@@ -113,6 +113,12 @@ function Order({ params }) {
                   {shippingAddress.city},{shippingAddress.postalCode},
                   {shippingAddress.country}
                 </ListItem>
+                <ListItem>
+                  Status:
+                  {isDelivered
+                    ? `delivered at ${deliveredAt} `
+                    : 'not delivered'}
+                </ListItem>
               </List>
             </Card>
             <Card className={classes.section}>
@@ -123,6 +129,10 @@ function Order({ params }) {
                   </Typography>
                 </ListItem>
                 <ListItem>{paymentMethod}</ListItem>
+                <ListItem>
+                  Status:
+                  {isPaid ? `paid at ${paidAt} ` : 'not paid'}
+                </ListItem>
               </List>
             </Card>
             <Card className={classes.section}>
