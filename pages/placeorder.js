@@ -1,6 +1,7 @@
 import {
   Button,
   Card,
+  CircularProgress,
   Grid,
   Link,
   List,
@@ -14,7 +15,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import dynamic from 'next/dynamic';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import NextLink from 'next/link';
@@ -22,12 +23,19 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import useStyles from '../utils/styles';
 import CheckoutWizard from '../components/checkoutWizard';
+import { useSnackbar } from 'notistack';
+import { getError } from '../utils/error';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function PlaceOrder() {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const [loading, setLoading] = useState(false);
   const classes = useStyles();
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
+    userInfo,
     cart: { cartItems, shippingAddress, paymentMethod },
   } = state;
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 12.456  => 12.46
@@ -41,7 +49,42 @@ function PlaceOrder() {
     if (!paymentMethod) {
       router.push('/payment');
     }
+    if (cartItems.length === 0) {
+      router.push('/cart');
+    }
   }, []);
+  const placeOrderHandler = async () => {
+    closeSnackbar();
+    try {
+      setLoading(true);
+      const { data } = await axios.post(
+        '/api/orders',
+        {
+          name: userInfo._id,
+          ordersItems: cartItems,
+          shippingAddress,
+          paymentMethod,
+          itemsPrice,
+          shippingPrice,
+          taxPrice,
+          totalPrice,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
+      dispatch({ type: 'CART_CLEAR' });
+      Cookies.remove('cartItems');
+      setLoading(false);
+      console.log(data);
+      router.push(`/order/${data._id}`);
+    } catch (error) {
+      setLoading(false);
+      enqueueSnackbar(getError(error), { variant: 'error' });
+    }
+  };
   return (
     <Layout title="Place Order">
       <CheckoutWizard activeStep={3} />
@@ -181,10 +224,20 @@ function PlaceOrder() {
                 </Grid>
               </ListItem>
               <ListItem>
-                <Button variant="contained" color="primary" fullWidth>
+                <Button
+                  onClick={placeOrderHandler}
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                >
                   Place Order
                 </Button>
               </ListItem>
+              {loading && (
+                <ListItem>
+                  <CircularProgress />
+                </ListItem>
+              )}
             </List>
           </Card>
         </Grid>

@@ -28,7 +28,6 @@ export default function Shipping() {
   } = useForm();
 
   const router = useRouter();
-  const { redirect } = router.query; // login?redirect=/shipping
   useEffect(() => {
     if (!userInfo) {
       router.push('/login?redirect=/shipping');
