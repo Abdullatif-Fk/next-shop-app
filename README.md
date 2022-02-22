@@ -160,3 +160,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. create api to order info
 2. create payment, shipping and items
 3. create order summary
+
+# Pay Order By PayPal
+
+1. install paypal button
+2. use it in order screen
+3. implement pay order api
