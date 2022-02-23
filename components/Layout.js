@@ -152,7 +152,9 @@ export default function Layout({ title, description, children }) {
         <Container className={classes.main}>{children}</Container>
 
         <footer className={classes.footer}>
-          <Typography>All rights reserved. Next Shop.</Typography>
+          <Typography>
+            All <strong>@Abed</strong> rights reserved. Next Shop 2022.
+          </Typography>
         </footer>
       </ThemeProvider>
     </div>
