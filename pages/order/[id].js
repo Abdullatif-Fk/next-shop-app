@@ -26,7 +26,6 @@ import CheckoutWizard from '../../components/checkoutWizard';
 import { useSnackbar } from 'notistack';
 import { getError } from '../../utils/error';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 
 function reducer(state, action) {

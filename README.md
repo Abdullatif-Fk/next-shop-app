@@ -166,3 +166,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 1. install paypal button
 2. use it in order screen
 3. implement pay order api
+
+# Display Orders History
+
+1. create orders api
+2. show orders in profile screen
