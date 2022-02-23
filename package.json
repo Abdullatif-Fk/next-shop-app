@@ -1,6 +1,9 @@
 {
   "name": "next-shop-app",
   "private": true,
+  "engines": {
+    "node": "16.14.0x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
