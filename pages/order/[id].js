@@ -117,7 +117,7 @@ function Order({ params }) {
       };
       loadPaypalScript();
     }
-  }, [order, successPay]);
+  }, [order, successPay, orderId, paypalDispatch, router, userInfo]);
   function createOrder(data, actions) {
     return actions.order
       .create({

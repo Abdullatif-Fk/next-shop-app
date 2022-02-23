@@ -63,7 +63,7 @@ function OrderHistory() {
       }
     };
     fetchOrders();
-  }, []);
+  }, [router, state]);
   return (
     <Layout title="Order History">
       <Grid container spacing={1}>

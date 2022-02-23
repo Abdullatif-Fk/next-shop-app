@@ -31,7 +31,7 @@ export default function Register() {
     if (userInfo) {
       router.push('/');
     }
-  }, []);
+  }, [userInfo, router]);
 
   const classes = useStyles();
   const submitHandler = async ({ name, email, password, confirmPassword }) => {
