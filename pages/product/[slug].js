@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
-// import data from '../../utils/data';
 import Layout from '../../components/Layout';
 import {
   Button,
@@ -24,9 +23,6 @@ export default function ProductScreen(props) {
   const { product } = props;
   const classes = useStyles();
   const { state, dispatch } = useContext(Store);
-  // const router = useRouter();
-  // const { slug } = router.query;
-  // const product = data.products.find((a) => a.slug === slug);
   const addToCartHandler = async () => {
     const { data } = await axios.get(`/api/products/${product._id}`);
 
